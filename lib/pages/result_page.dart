@@ -1,7 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:goldenstocks_ghana/models/historical_data_model.dart';
+
+import '../models/stock_symbols.dart';
+
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  final String symbol;
+  const ResultPage({
+    super.key,
+    required this.symbol,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +20,7 @@ class ResultPage extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            const Text('Predicted Price:'),
+            Text('Predicted Price for ${getKeyFromValue(symbol)}($symbol):'),
             const Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +38,11 @@ class ResultPage extends StatelessWidget {
             const Text('Confidence: 100%'),
             const Spacer(),
             ElevatedButton(
-                onPressed: () {}, child: const Text('View Historical Data')),
+                onPressed: () {
+                  // fetchHistoricalData('AAPL');
+                  print(fetchHistoricalStockData(symbol));
+                },
+                child: const Text('View Historical Data')),
             const Spacer(),
             const Spacer()
           ],
