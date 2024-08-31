@@ -1,9 +1,7 @@
 import 'dart:async';
 
-
 import 'package:flutter/material.dart';
-
-import 'main_page.dart';
+import 'package:goldenstocks_ghana/pages/main_screen.dart';
 // Import for the Timer
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const MainPage()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     });
   }
@@ -32,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Container(
       color: const Color.fromARGB(255, 224, 246, 225),
-      child: Center(
+      child: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -40,14 +38,14 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 300,
               // child: Image.asset('assets/logo.png'),
             ),
-            const Text(
+            Text(
               'GoldenStocks Ghana',
               style: TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 45, 88, 48)),
             ),
-            const SizedBox(
+            SizedBox(
               height: 20,
             )
           ],

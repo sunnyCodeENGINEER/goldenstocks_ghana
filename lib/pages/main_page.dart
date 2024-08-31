@@ -30,7 +30,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: 
+      BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         items: [
