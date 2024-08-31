@@ -17,8 +17,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          children: [Spacer(), Text('GoldenStock Ghana'), Spacer()],
+        // leading: Container(),
+        title: Row(
+          children: [
+            const SizedBox(
+              width: 60,
+            ),
+            const Spacer(),
+            const Text('GoldenStock Ghana'),
+            const Spacer(),
+            SizedBox(
+              width: 30,
+              child: ElevatedButton(
+                  onPressed: () {}, child: const Icon(Icons.settings)),
+            ),
+            const SizedBox(
+              width: 30,
+            )
+          ],
         ),
       ),
       body: Column(

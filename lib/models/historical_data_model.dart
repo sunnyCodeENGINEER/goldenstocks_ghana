@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 class HistoricalStockData {
@@ -71,7 +73,8 @@ class TimeSeries {
 }
 
 Future<HistoricalStockData?> fetchHistoricalStockData(String symbol) async {
-  final apiKey = 'MY31M0AP3TAN5NI8';
+  final apiKey = '411R7YWZSJWPGO78';
+  // const apiKey = 'MY31M0AP3TAN5NI8';
   final url =
       'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=$symbol&apikey=$apiKey';
 
@@ -79,7 +82,22 @@ Future<HistoricalStockData?> fetchHistoricalStockData(String symbol) async {
 
   if (response.statusCode == 200) {
     final jsonResponse = jsonDecode(response.body);
-    return HistoricalStockData.fromJson(jsonResponse);
+    try {
+      return HistoricalStockData.fromJson(jsonResponse);
+    } catch (e) {
+      // print(e);
+      // print(url);
+      // print(response.body);
+      Fluttertoast.showToast(
+        msg: 'Total API call limit reached for today',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }
   } else {
     print('Failed to load historical data');
     return null;
@@ -101,7 +119,7 @@ Future<HistoricalStockData?> fetchHistoricalStockData(String symbol) async {
 // }
 
 Future<void> fetchHistoricalData(String symbol) async {
-  const apiKey = 'MY31M0AP3TAN5NI8';
+  const apiKey = '411R7YWZSJWPGO78';
   final url =
       'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=$symbol&apikey=$apiKey';
 

@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:goldenstocks_ghana/models/historical_data_model.dart';
+import 'package:goldenstocks_ghana/pages/stock_chart_page.dart';
 
 import '../models/stock_symbols.dart';
 
@@ -40,7 +40,16 @@ class ResultPage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   // fetchHistoricalData('AAPL');
-                  print(fetchHistoricalStockData(symbol));
+                  print(fetchHistoricalStockData('AAPL'));
+
+                  return;
+
+                  Navigator.push(
+                      (context),
+                      MaterialPageRoute(
+                          builder: (context) => StockChartPage(
+                                symbol: symbol,
+                              )));
                 },
                 child: const Text('View Historical Data')),
             const Spacer(),
