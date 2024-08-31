@@ -1,15 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:goldenstocks_ghana/pages/result_page.dart';
 
-import '../models/stock_symbols.dart';
-
 class PredictPage extends StatelessWidget {
-  final String symbol;
-  const PredictPage({
-    super.key,
-    required this.symbol,
-  });
+  const PredictPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +11,7 @@ class PredictPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text(
-                'Enter current closing price for ${getKeyFromValue(symbol)}($symbol)'),
+            const Text('Enter current closing price for [stock]'),
             SizedBox(
               width: 300,
               child: TextField(
@@ -74,9 +66,7 @@ class PredictPage extends StatelessWidget {
                   Navigator.push(
                       (context),
                       MaterialPageRoute(
-                          builder: (context) => ResultPage(
-                                symbol: symbol,
-                              )));
+                          builder: (context) => const ResultPage()));
                 },
                 child: const Text('Predict'))
           ],

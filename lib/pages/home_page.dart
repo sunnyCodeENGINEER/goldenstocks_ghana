@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:goldenstocks_ghana/models/stock_symbols.dart';
 import 'package:goldenstocks_ghana/pages/predict_page.dart';
 import 'package:goldenstocks_ghana/pages/stocks_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController query = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,39 +18,16 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 30,
           ),
-          Row(
+          const Row(
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 20,
               ),
               Expanded(
                   child: SearchBar(
-                controller: query,
                 hintText: 'Search for stock ...',
               )),
-              const SizedBox(
-                width: 10,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    if (query.text.isNotEmpty) {
-                      // String symb = getStockSymbolOrName(query.text);
-                      List<String> symb = getMatchingStocks(query.text);
-                      // if (symb == 'Input not found in stock symbols') return;
-                      if (symb.isEmpty) return;
-
-                      Navigator.push(
-                          (context),
-                          MaterialPageRoute(
-                              builder: (context) => StocksPage(
-                                    symbols: symb,
-                                  )));
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20)),
-                  child: const Icon(Icons.search)),
-              const SizedBox(
+              SizedBox(
                 width: 20,
               ),
             ],
@@ -69,8 +39,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                     (context),
                     MaterialPageRoute(
-                        builder: (context) =>
-                            StocksPage(symbols: getValues())));
+                        builder: (context) => const StocksPage()));
               },
               child: const Text('View all Stocks')),
           const Spacer(),
@@ -89,12 +58,8 @@ class StockOfTheDayBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            (context),
-            MaterialPageRoute(
-                builder: (context) => const PredictPage(
-                      symbol: 'AAPL',
-                    )));
+        Navigator.push((context),
+            MaterialPageRoute(builder: (context) => const PredictPage()));
       },
       child: Container(
         height: 200,
