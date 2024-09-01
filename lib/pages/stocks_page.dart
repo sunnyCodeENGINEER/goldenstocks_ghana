@@ -57,10 +57,21 @@ class _StocksPageState extends State<StocksPage> {
                         Navigator.push(
                             (context),
                             MaterialPageRoute(
-                              builder: (context) => PredictPage(symbol: symbol),
+                              builder: (context) => PredictPage(
+                                symbol: symbol,
+                                closingPrice: quote.previousClose.toString(),
+                              ),
                             ));
                       },
-                      title: Text('${getKeyFromValue(symbol)}($symbol)'),
+                      title: Text(
+                        '${getKeyFromValue(symbol)}($symbol)',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.red,
+                        ),
+                      ),
+                      // titleTextStyle:
+                      //     const TextStyle(fontSize: 24, color: Colors.red),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

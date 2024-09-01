@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../models/news_article.dart';
@@ -15,10 +14,10 @@ class NewsTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Colors.green[100],
+          color: Colors.red[900],
           border: Border.all(
             color: Colors.white,
-            width: 3.0,
+            width: 1.0,
           ),
           boxShadow: [
             BoxShadow(
@@ -38,12 +37,12 @@ class NewsTile extends StatelessWidget {
               // ignore: prefer_const_literals_to_create_immutables
               boxShadow: [
                 const BoxShadow(
-                  color: Color.fromARGB(255, 50, 131, 54),
+                  color: Colors.red,
                   blurRadius: 15,
                   offset: Offset(5, 5),
                 ),
                 const BoxShadow(
-                  color: Colors.white,
+                  color: Colors.black,
                   blurRadius: 15,
                   offset: Offset(-5, -5),
                 ),

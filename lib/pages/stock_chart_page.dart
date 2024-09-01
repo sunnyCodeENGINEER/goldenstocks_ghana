@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:goldenstocks_ghana/models/historical_data_model.dart';
 
 import '../components/stock_chart.dart';
@@ -42,7 +41,7 @@ class StockChartPage extends StatelessWidget {
           final stockData = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Stock Prices For '),
+              title: Text('Stock Prices For $symbol'),
             ),
             body: Column(
               children: [

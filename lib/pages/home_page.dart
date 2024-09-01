@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:goldenstocks_ghana/models/stock_symbols.dart';
+import 'package:goldenstocks_ghana/models/stocks.dart';
 import 'package:goldenstocks_ghana/pages/stocks_page.dart';
+import 'package:lottie/lottie.dart';
 
+import '../models/stocks_model.dart';
 import 'predict_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,12 +27,19 @@ class _HomePageState extends State<HomePage> {
               width: 60,
             ),
             const Spacer(),
-            const Text('GoldenStock Ghana'),
+            const Text(
+              'GoldenStock Ghana',
+              style: TextStyle(color: Colors.white),
+            ),
             const Spacer(),
             SizedBox(
               width: 30,
               child: ElevatedButton(
-                  onPressed: () {}, child: const Icon(Icons.settings)),
+                  onPressed: () {},
+                  child: const Icon(
+                    Icons.settings,
+                    color: Colors.red,
+                  )),
             ),
             const SizedBox(
               width: 30,
@@ -51,6 +61,8 @@ class _HomePageState extends State<HomePage> {
                   child: SearchBar(
                 controller: query,
                 hintText: 'Search for stock ...',
+                hintStyle: const WidgetStatePropertyAll(
+                    TextStyle(color: Colors.red, fontSize: 19)),
               )),
               const SizedBox(
                 width: 10,
@@ -73,7 +85,10 @@ class _HomePageState extends State<HomePage> {
                   },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(20)),
-                  child: const Icon(Icons.search)),
+                  child: const Icon(
+                    Icons.search,
+                    color: Colors.red,
+                  )),
               const SizedBox(
                 width: 20,
               ),
@@ -81,7 +96,15 @@ class _HomePageState extends State<HomePage> {
           ),
           const Spacer(),
           const StockOfTheDayBanner(),
+          const SizedBox(
+            height: 30,
+          ),
           ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  elevation: 5,
+                  shadowColor: const Color.fromARGB(255, 123, 174, 215),
+                  foregroundColor: Colors.red,
+                  side: const BorderSide(color: Colors.red)),
               onPressed: () {
                 Navigator.push(
                     (context),
@@ -105,24 +128,47 @@ class StockOfTheDayBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
+        StockQuote stock = await fetchStockQuote('AAPL');
         Navigator.push(
             (context),
             MaterialPageRoute(
-                builder: (context) => const PredictPage(
+                builder: (context) => PredictPage(
                       symbol: 'AAPL',
+                      closingPrice: stock.previousClose.toString(),
                     )));
       },
       child: Container(
         width: 300,
         height: 200,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30), color: Colors.black),
-        child: const Column(
+            borderRadius: BorderRadius.circular(30),
+            color: Colors.black,
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(255, 123, 174, 215),
+                offset: Offset(-5, -5),
+                blurRadius: 10,
+              ),
+              BoxShadow(
+                color: Colors.red,
+                offset: Offset(10, 10),
+                blurRadius: 10,
+              )
+            ]),
+        child: Column(
           children: [
-            Text(
+            const Text(
               'Stock of the day',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              height: 150,
+              width: 250,
+              child: Lottie.asset('assets/splash.json'),
             )
           ],
         ),

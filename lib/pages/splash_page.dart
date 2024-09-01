@@ -29,21 +29,22 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      color: const Color.fromARGB(255, 224, 246, 225),
+      color: const Color.fromARGB(255, 0, 0, 0),
       child: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               width: 300,
               // child: Image.asset('assets/logo.png'),
             ),
             Text(
-              'GoldenStocks Ghana',
+              'GoldenStocks\nGhana', textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 45, 88, 48)),
+                  color: Colors.red),
             ),
             SizedBox(
               height: 20,

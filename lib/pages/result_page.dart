@@ -20,7 +20,16 @@ class ResultPage extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            Text('Predicted Price for ${getKeyFromValue(symbol)}($symbol):'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const Text('Predicted Price for '),
+                Text('${getKeyFromValue(symbol)}($symbol):',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 24))
+              ],
+            ),
             const Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -38,11 +47,14 @@ class ResultPage extends StatelessWidget {
             const Text('Confidence: 100%'),
             const Spacer(),
             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    shadowColor: const Color.fromARGB(255, 123, 174, 215),
+                    foregroundColor: Colors.red,
+                    side: const BorderSide(color: Colors.red)),
                 onPressed: () {
                   // fetchHistoricalData('AAPL');
                   print(fetchHistoricalStockData('AAPL'));
-
-                  return;
 
                   Navigator.push(
                       (context),

@@ -41,18 +41,18 @@ class _NewsPageState extends State<NewsPage> {
       appBar: AppBar(
         title: Container(
           padding: const EdgeInsets.only(top: 20),
-          child: Row(
+          child: const Row(
             children: [
               SizedBox(
-                width: 50,
+                width: 10,
                 // child: Image.asset('assets/logo.png'),
               ),
-              const Text(
+              Text(
                 "News",
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 45, 88, 48),
+                  color: Colors.red,
                 ),
               )
             ],

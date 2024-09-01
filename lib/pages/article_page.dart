@@ -10,16 +10,15 @@ class ArticlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 186, 229, 188),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.chevron_left,
-              size: 40, color: Color.fromARGB(255, 45, 88, 48)),
+          icon: const Icon(Icons.chevron_left, size: 40, color: Colors.red),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 186, 229, 188),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Column(
         children: [
           const SizedBox(height: 10),
@@ -31,15 +30,15 @@ class ArticlePage extends StatelessWidget {
                 width: 300,
                 height: 300,
                 decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.red,
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(
                       color: Colors.white,
-                      width: 3.0,
+                      width: 1.0,
                     ),
                     boxShadow: const [
                       BoxShadow(
-                        color: Color.fromARGB(255, 19, 86, 21),
+                        color: Colors.red,
                         blurRadius: 15,
                         offset: Offset(5, 5),
                       ),
@@ -78,7 +77,7 @@ class ArticlePage extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 45, 88, 48)),
+                          color: Colors.red),
                     ),
                     Text(
                       'By: ${article.author}',
@@ -86,28 +85,28 @@ class ArticlePage extends StatelessWidget {
                           fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const Divider(
-                      color: Color.fromARGB(255, 45, 88, 48),
+                      color: Colors.red,
                     ),
                     const Text(
                       "Description",
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 114, 162, 117)),
+                          color: Color.fromARGB(255, 229, 124, 117)),
                     ),
                     Text(
                       article.description,
                       style: const TextStyle(fontSize: 18),
                     ),
                     const Divider(
-                      color: Color.fromARGB(255, 45, 88, 48),
+                      color: Colors.red,
                     ),
                     const Text(
                       "Contents",
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 114, 162, 117)),
+                          color: Color.fromARGB(255, 229, 124, 117)),
                     ),
                     Text(
                       article.content,

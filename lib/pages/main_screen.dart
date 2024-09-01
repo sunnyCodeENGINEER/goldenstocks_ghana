@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 15,
-            vertical: 20,
+            vertical: 10,
           ),
           child: GNav(
               backgroundColor: Colors.black,
