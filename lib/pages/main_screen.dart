@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
         color: Colors.black,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 15,
+            horizontal: 65,
             vertical: 10,
           ),
           child: GNav(
@@ -56,10 +56,10 @@ class _MainScreenState extends State<MainScreen> {
                   icon: Icons.article,
                   text: 'News',
                 ),
-                GButton(
-                  icon: Icons.message,
-                  text: 'Alerts',
-                )
+                // GButton(
+                //   icon: Icons.message,
+                //   text: 'Alerts',
+                // )
               ]),
         ),
       ),

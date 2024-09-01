@@ -14,13 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RokTrade',
       darkTheme: ThemeData(
+        fontFamily: 'HvDTrialBrandonText',
         brightness: Brightness.dark,
         primarySwatch: Colors.red,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.red)
-        // Other dark theme settings
       ),
       themeMode: ThemeMode.system,
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       home: const SplashScreen(),
     );
   }

@@ -1,9 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:goldenstocks_ghana/models/historical_data_model.dart';
-import 'package:goldenstocks_ghana/pages/stock_chart_page.dart';
+import 'package:goldenstocks_ghana/pages/stock_candlestick_page.dart';
 
 import '../models/stock_symbols.dart';
+import 'stock_chart_page.dart';
 
 class ResultPage extends StatelessWidget {
   final String symbol;
@@ -57,11 +58,15 @@ class ResultPage extends StatelessWidget {
                   print(fetchHistoricalStockData('AAPL'));
 
                   Navigator.push(
-                      (context),
-                      MaterialPageRoute(
-                          builder: (context) => StockChartPage(
-                                symbol: symbol,
-                              )));
+                    (context),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            StockChartPage(
+                              symbol: symbol,
+                            ),
+                            // StockCandlestickPage(symbol: symbol),
+                            ),
+                  );
                 },
                 child: const Text('View Historical Data')),
             const Spacer(),

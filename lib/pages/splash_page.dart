@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
               // child: Image.asset('assets/logo.png'),
             ),
             Text(
-              'GoldenStocks\nGhana', textAlign: TextAlign.center,
+              'Stocks', textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,

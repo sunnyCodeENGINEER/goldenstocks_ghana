@@ -6,7 +6,7 @@ import '../models/historical_data_model.dart';
 class StockChart extends StatelessWidget {
   final Map<String, TimeSeries> timeSeries;
 
-  StockChart({required this.timeSeries});
+  const StockChart({super.key, required this.timeSeries});
 
   @override
   Widget build(BuildContext context) {

@@ -21,27 +21,28 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         // leading: Container(),
-        title: Row(
+        title: const Row(
           children: [
-            const SizedBox(
+            SizedBox(
               width: 60,
             ),
-            const Spacer(),
-            const Text(
-              'GoldenStock Ghana',
+            Spacer(),
+            Text(
+              'Stocks',
               style: TextStyle(color: Colors.white),
             ),
-            const Spacer(),
+            Spacer(),
             SizedBox(
               width: 30,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Icon(
-                    Icons.settings,
-                    color: Colors.red,
-                  )),
+              // child:
+              // ElevatedButton(
+              //     onPressed: () {},
+              //     child: const Icon(
+              //       Icons.settings,
+              //       color: Colors.red,
+              //     )),
             ),
-            const SizedBox(
+            SizedBox(
               width: 30,
             )
           ],
@@ -159,15 +160,16 @@ class StockOfTheDayBanner extends StatelessWidget {
         child: Column(
           children: [
             const Text(
-              'Stock of the day',
+              'Stock of the day: \nApple (AAPL)',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30,
                 color: Colors.white,
               ),
             ),
             SizedBox(
-              height: 150,
-              width: 250,
+              height: 90,
+              width: 200,
               child: Lottie.asset('assets/splash.json'),
             )
           ],
@@ -212,4 +214,3 @@ class StockOfTheDayBanner extends StatelessWidget {
 //     );
 //   }
 // }
-
