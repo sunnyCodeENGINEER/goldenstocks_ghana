@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:goldenstocks_ghana/models/ema_data.dart';
 import 'package:goldenstocks_ghana/pages/result_page.dart';
 
 import '../models/stock_symbols.dart';
@@ -102,6 +103,8 @@ class _PredictPageState extends State<PredictPage> {
                     foregroundColor: Colors.red,
                     side: const BorderSide(color: Colors.red)),
                 onPressed: () {
+                  
+                  
                   Navigator.push(
                       (context),
                       MaterialPageRoute(
