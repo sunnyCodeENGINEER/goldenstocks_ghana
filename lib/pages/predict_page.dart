@@ -110,6 +110,7 @@ class _PredictPageState extends State<PredictPage> {
                       MaterialPageRoute(
                           builder: (context) => ResultPage(
                                 symbol: widget.symbol,
+                                current: _controller.text,
                               )));
                 },
                 child: const Text('Predict')),

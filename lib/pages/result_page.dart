@@ -3,21 +3,16 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
 import 'package:goldenstocks_ghana/models/historical_data_model.dart';
-import 'package:goldenstocks_ghana/pages/stock_candlestick_page.dart';
+import 'package:http/http.dart' as http;
 
-import '../models/ema_data.dart';
 import '../models/stock_symbols.dart';
 import 'stock_chart_page.dart';
 
 class ResultPage extends StatelessWidget {
   final String symbol;
-  const ResultPage({
-    super.key,
-    required this.symbol,
-  });
+  final String current;
+  const ResultPage({super.key, required this.symbol, required this.current});
 
   Future<double?> fetchEMAData(String symbol) async {
     final apiKey = '411R7YWZSJWPGO78';
@@ -101,6 +96,8 @@ class ResultPage extends StatelessWidget {
                     children: [
                       const Text('Predicted Price for '),
                       Text('${getKeyFromValue(symbol)}($symbol):',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                           textAlign: TextAlign.center,
                           style: const TextStyle(fontSize: 24))
                     ],
@@ -121,6 +118,12 @@ class ResultPage extends StatelessWidget {
                     ],
                   ),
                   Text('Confidence: ${Random().nextInt(31) + 69}%'),
+                  const Spacer(),
+                  Text(
+                    emaData > double.parse(current) ? 'Buy' : 'Sell',
+                    style: const TextStyle(
+                        fontSize: 90, fontWeight: FontWeight.bold),
+                  ),
                   const Spacer(),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(

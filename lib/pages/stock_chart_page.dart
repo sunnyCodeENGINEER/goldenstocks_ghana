@@ -41,7 +41,7 @@ class StockChartPage extends StatelessWidget {
           final stockData = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
-              title: Text('Stock Prices For $symbol'),
+              title: Text('Stock Prices For ($symbol)'),
             ),
             body: Column(
               children: [
