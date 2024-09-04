@@ -44,6 +44,7 @@ dependencies:
   google_nav_bar: ^5.0.6
   lottie: ^3.1.2
   syncfusion_flutter_charts: ^26.2.11
+  rename: ^3.0.2
 
 dev_dependencies:
   flutter_test:
